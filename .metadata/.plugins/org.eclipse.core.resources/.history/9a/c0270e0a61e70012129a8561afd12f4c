@@ -1,0 +1,5 @@
+@backgroundColor: #CCC;
+
+body {
+	background-color: @backgroundColor;
+}

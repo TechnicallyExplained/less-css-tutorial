@@ -1,0 +1,17 @@
+<!DOCTYPE project>
+<project basedir="." default="less" name="lesscss">
+	<property name="dir.less" value="${basedir}/WebContent/less" />
+	<property name="lessc" value="/usr/local/bin/lessc" />
+	<property name="dir.css" value="${basedir}/WebContent/styles" />
+	<property name="pathToNode" value="/usr/local/bin" />
+
+	<target name="less">
+		<apply executable="${lessc}" dest="${dir.css}">
+			<env key="PATH" value="${env.PATH}:${pathToNode}" />
+			<fileset dir="${dir.less}" includes="*.less" />
+			<srcfile />
+			<targetfile />
+			<mapper type="glob" from="*.less" to="*.css" />
+		</apply>
+	</target>
+</project>

@@ -1,0 +1,21 @@
+<project basedir="." default="less" name="lesscss">
+	<property name="dir.less" value="/path/to/my-project/less" />
+	<property name="lessc" value="/path/to/lessc" />
+
+	<target description="Compile LESS files" name="less">
+		<antcall target="lessfile">
+			<param name="files" value="*" />
+		</antcall>
+	</target>
+
+	<target name="lessfile">
+		<apply executable="${lessc}">
+			<fileset dir="${dir.less}" includes="${files}.less">
+				<redirector>
+					<outputmapper from="${files}.less" id="out" to="../css/${files}.css" type="glob">
+					</outputmapper>
+				</redirector>
+			</fileset>
+		</apply>
+	</target>
+</project>

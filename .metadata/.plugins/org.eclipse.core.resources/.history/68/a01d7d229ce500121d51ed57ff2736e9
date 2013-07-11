@@ -1,0 +1,12 @@
+
+public class HelloWorld {
+
+	public String helloWorld = "hello";
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

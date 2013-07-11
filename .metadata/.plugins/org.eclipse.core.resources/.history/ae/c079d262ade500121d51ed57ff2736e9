@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<meta charset="US-ASCII">
+<title>Hello LessCss</title>
+</head>
+<body>
+<h1>Hello LessCss! Haha</h1>
+</body>
+</html>
