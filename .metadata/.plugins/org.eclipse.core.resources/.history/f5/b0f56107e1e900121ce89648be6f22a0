@@ -1,6 +1,0 @@
-@backgroundColor: #CCC;
-
-body {
-	background-color: @backgroundColor;
-	color: @backgroundColor + 17 * 4;
-}

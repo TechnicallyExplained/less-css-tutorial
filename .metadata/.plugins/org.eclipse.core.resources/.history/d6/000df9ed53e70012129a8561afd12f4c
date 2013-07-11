@@ -1,5 +1,0 @@
-@backgroundColor: #FFF;
-
-body {
-	background-color: @backgroundColor;
-}

@@ -1,2 +1,0 @@
-INDEX VERSION 1.126+C:\Users\yaakov\workspace\less-css-tutorial\.metadata\.plugins\org.eclipse.jdt.core
-1825438857.index
