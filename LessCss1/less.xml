@@ -15,7 +15,6 @@
 	<!-- ***************************************************** -->
 
 	<target name="lessLinux" depends="checkOs" if="isLinux">
-		<echo>In Linux</echo>
 		<apply executable="${lesscUnix}" dest="${dir.css}">
 			<env key="PATH" value="${env.PATH}:${pathToNode}" />
 			<fileset dir="${dir.less}" includes="*.less" />
@@ -23,16 +22,17 @@
 			<targetfile />
 			<mapper type="glob" from="*.less" to="*.css" />
 		</apply>
+		<echo>Less files compiled to CSS (Linux)</echo>
 	</target>
 
 	<target name="lessWindows" depends="checkOs" if="isWindows">
-		<echo>In Windows</echo>
 		<apply executable="${lesscWin}" dest="${dir.css}">
 			<fileset dir="${dir.less}" includes="*.less" />
 			<srcfile />
 			<targetfile />
 			<mapper type="glob" from="*.less" to="*.css" />
 		</apply>
+		<echo>Less files compiled to CSS (Windows)</echo>
 	</target>
 
 	<target name="less" depends="checkOs">
