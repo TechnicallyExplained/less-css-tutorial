@@ -1,2 +1,6 @@
-INDEX VERSION 1.122+/Users/yaakov/workspace/technicallyexplained/lesscss/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2783118233.index
+INDEX VERSION 1.122+C:\Users\yaakov\workspace\less-css-tutorial\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2028353894.index
+2348586358.index
+825658691.index
+1202597270.index
+1825438857.index

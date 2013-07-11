@@ -1,9 +1,9 @@
 <!DOCTYPE project>
 <project basedir="." default="less" name="lesscss">
 	<property name="dir.less" value="${basedir}/WebContent/less" />
-	<property name="lessc" value="/usr/local/bin/lessc" />
+	<property name="lessc" value="C:/Users/yaakov/tools/less.js-windows-master/lessc.cmd" />
 	<property name="dir.css" value="${basedir}/WebContent/styles" />
-	<property name="pathToNode" value="/usr/local/bin" />
+	<!-- property name="pathToNode" value="/usr/local/bin" / -->
 
 	<target name="checkOs">
 		<condition property="isWindows">
