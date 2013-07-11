@@ -1,9 +1,44 @@
 <!DOCTYPE project>
 <project basedir="." default="less" name="lesscss">
 	<property name="dir.less" value="${basedir}/WebContent/less" />
-	<property name="lessc" value="C:/Users/yaakov/tools/less.js-windows-master/lessc.cmd" />
 	<property name="dir.css" value="${basedir}/WebContent/styles" />
-	<!-- property name="pathToNode" value="/usr/local/bin" / -->
+
+	<!-- ***** These properties are only used on Mac, Linux, Unix OS. ***** -->
+	<!--  EDIT the values to point to your system's command-line Less compiler & node executable. -->
+	<property name="lesscUnix" value="/usr/local/bin/lessc" />
+	<property name="pathToNode" value="/usr/local/bin" />
+	<!-- ***************************************************** -->
+
+	<!-- ***** This property is only used on Windows OS. ***** -->
+	<!-- ***** EDIT the value to point to your system's command-line Less compiler. ***** -->
+	<property name="lesscWin" value="C:/Users/yaakov/tools/less.js-windows-master/lessc.cmd" />
+	<!-- ***************************************************** -->
+
+	<target name="lessLinux" depends="checkOs" if="isLinux">
+		<echo>In Linux</echo>
+		<apply executable="${lesscUnix}" dest="${dir.css}">
+			<env key="PATH" value="${env.PATH}:${pathToNode}" />
+			<fileset dir="${dir.less}" includes="*.less" />
+			<srcfile />
+			<targetfile />
+			<mapper type="glob" from="*.less" to="*.css" />
+		</apply>
+	</target>
+
+	<target name="lessWindows" depends="checkOs" if="isWindows">
+		<echo>In Windows</echo>
+		<apply executable="${lesscWin}" dest="${dir.css}">
+			<fileset dir="${dir.less}" includes="*.less" />
+			<srcfile />
+			<targetfile />
+			<mapper type="glob" from="*.less" to="*.css" />
+		</apply>
+	</target>
+
+	<target name="less" depends="checkOs">
+		<antcall target="lessLinux" />
+		<antcall target="lessWindows" />
+	</target>
 
 	<target name="checkOs">
 		<condition property="isWindows">
@@ -18,29 +53,4 @@
 		</condition>
 	</target>
 
-	<target name="less" depends="checkOs">
-		<antcall target="lessLinux" />
-		<antcall target="lessWindows" />
-	</target>
-
-	<target name="lessLinux" depends="checkOs" if="isLinux">
-		<echo>In Linux</echo>
-		<apply executable="${lessc}" dest="${dir.css}">
-			<env key="PATH" value="${env.PATH}:${pathToNode}" />
-			<fileset dir="${dir.less}" includes="*.less" />
-			<srcfile />
-			<targetfile />
-			<mapper type="glob" from="*.less" to="*.css" />
-		</apply>
-	</target>
-
-	<target name="lessWindows" depends="checkOs" if="isWindows">
-		<echo>In Windows</echo>
-		<apply executable="${lessc}" dest="${dir.css}">
-			<fileset dir="${dir.less}" includes="*.less" />
-			<srcfile />
-			<targetfile />
-			<mapper type="glob" from="*.less" to="*.css" />
-		</apply>
-	</target>
 </project>
